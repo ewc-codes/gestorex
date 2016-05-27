@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	Gestor EX
+</h:head>
+<h:form>
+	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
+	<p:panel id="basic" header="Login" footer="Gestor EX - 2016" style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="10">
+ 				<h:outputLabel for="user" value="Usuário: *"/>       
+            	<p:inputText id="user" value="#{loginController.login}" required="true"/>            	
+            	<h:outputLabel for="pass" value="Senha: *"/>
+            	<p:password id="pass" value="#{loginController.senha}" required="true"/>            	
+            	<p:commandButton value="Entrar" id="entrar" validateClient="true" icon="ui-icon-check" action="#{loginController.accessAction}" />            	
+            	<p:commandButton value="Esqueceu a senha" id="esqueceu" icon="ui-icon-help" actionListener="#{loginController.recoveryPasswordAction}" />
+        </h:panelGrid>
+    </p:panel>
+</h:form>
+</html>
