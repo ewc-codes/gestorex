@@ -12,5 +12,20 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<application>
+		<resource-bundle>
+			<base-name>message</base-name>
+			<var>message</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>menu</base-name>
+			<var>menu</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>application</base-name>
+			<var>application</var>								
+		</resource-bundle>
+	</application>
 
 </faces-config>

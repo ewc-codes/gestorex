@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
-	
-	
-	
-</html>
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+		<p:megaMenu  orientation="horizontal" style="margin-top:20px">		
+			<f:facet name="options">				
+				<p:commandButton id="dynaButton" value="Módulos" type="button" icon="ui-icon-extlink" />
+				<p:separator/>	
+            	<p:inputText style="margin-right:10px" placeholder="Search"/>
+            	<p:commandButton action="#{mainMenuController.quitAction}" value="Sair" icon="ui-icon-extlink"/>
+            	<p:tieredMenu overlay="true" trigger="dynaButton" my="left top" at="left bottom" style="width:200px">
+		        	<p:menuitem value="Contabil" icon="ui-icon-extlink"/>
+		        	<p:menuitem  value="Recursos Humanos" icon="ui-icon-extlink"/>
+		        	<p:menuitem value="Administrar" icon="ui-icon-extlink"/>		        	
+		    	</p:tieredMenu>
+        	</f:facet>
+		</p:megaMenu>
+</ui:composition>

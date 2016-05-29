@@ -11,16 +11,16 @@
 	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 	<p:layout fullPage="true">
  
-    <p:layoutUnit position="north" size="70">
-    
+    <p:layoutUnit position="north" size="100" resizable="false" collapsible="true">
+    	<ui:include src="/pages/top.xhtml"></ui:include>
     </p:layoutUnit>
  
     <p:layoutUnit position="west" size="315" header="Menu" resizable="true" collapsible="true">
 		<ui:include src="/pages/main_menu.xhtml"></ui:include>
     </p:layoutUnit>
  
-    <p:layoutUnit position="center" header="Principal">
-        
+    <p:layoutUnit id="centro" position="center" header="Principal">
+    	<ui:include src="#{mainMenuController.itemMenu}"></ui:include>
     </p:layoutUnit>
  
 </p:layout>

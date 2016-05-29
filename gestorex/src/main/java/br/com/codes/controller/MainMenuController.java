@@ -1,17 +1,28 @@
 package br.com.codes.controller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+
+
 @ManagedBean
-public class MainMenuController {
+@RequestScoped
+public class MainMenuController extends GenericController{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2121549074188321758L;
+	
+	private String itemMenu;
+
 	@PostConstruct
 	public void init() {
-		System.out.println(" Bean executado! ");
+		System.out.println(" Bean - Menu - executado! ");
 	}
 	
 	public void saveAction(ActionEvent actionEvent) {
@@ -29,5 +40,22 @@ public class MainMenuController {
 	public void addMessage(String summary) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Info", summary));
 	}
+	
+	public void acessarItensMenu(ActionEvent actionEvent){		
+		setItemMenu("/pages/sobre.xhtml");
+	}
 
+	public String quitAction(){
+		return "/index.xhtml?faces-redirect=true";
+	}
+
+	public String getItemMenu() {
+		return itemMenu;
+	}
+
+	public void setItemMenu(String itemMenu) {
+		this.itemMenu = itemMenu;
+	}
+	
+	
 }

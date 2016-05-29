@@ -1,15 +1,16 @@
 package br.com.codes.controller;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+
 @ManagedBean
-public class LoginController implements Serializable{
+@RequestScoped
+public class LoginController extends GenericController{
 	
 	/**
 	 * 
@@ -22,8 +23,11 @@ public class LoginController implements Serializable{
 	
 	@PostConstruct
 	public void init() {
-		System.out.println(" Bean - Login - executado! ");
+		
+		System.out.println(getMessage("message.io.login"));
+		
 	}
+		
 	
 	public void saveAction(ActionEvent actionEvent) {
 		addMessage("Registro salvo com sucesso");
@@ -34,8 +38,9 @@ public class LoginController implements Serializable{
 	}
 	
 	public String accessAction(){
-		return "home.xhtml?faces-redirect=true";
+		return "/home.xhtml?faces-redirect=true";
 	}
+	
 	
 	public void recoveryPasswordAction(ActionEvent actionEvent){
 		
@@ -56,7 +61,7 @@ public class LoginController implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 
+
+	
 }
