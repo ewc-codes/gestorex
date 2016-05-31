@@ -9,11 +9,11 @@
 				<p:commandButton id="dynaButton" value="Módulos" type="button" icon="ui-icon-extlink" />
 				<p:separator/>	
             	<p:inputText style="margin-right:10px" placeholder="Search"/>
-            	<p:commandButton action="#{mainMenuController.quitAction}" value="Sair" icon="ui-icon-extlink"/>
+            	<p:commandButton action="#{mainMenuController.quitAction}" value="#{menu.sair}" icon="ui-icon-extlink"/>
             	<p:tieredMenu overlay="true" trigger="dynaButton" my="left top" at="left bottom" style="width:200px">
-		        	<p:menuitem value="Contabil" icon="ui-icon-extlink"/>
-		        	<p:menuitem  value="Recursos Humanos" icon="ui-icon-extlink"/>
-		        	<p:menuitem value="Administrar" icon="ui-icon-extlink"/>		        	
+		        	<p:menuitem value="#{menu.contabil}" icon="ui-icon-extlink"/>
+		        	<p:menuitem  value="#{menu.rh}" icon="ui-icon-extlink"/>
+		        	<p:menuitem value="#{menu.administrar}" icon="ui-icon-extlink"/>		        	
 		    	</p:tieredMenu>
         	</f:facet>
 		</p:megaMenu>

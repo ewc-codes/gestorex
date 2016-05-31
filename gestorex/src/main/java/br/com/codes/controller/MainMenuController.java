@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import br.com.codes.domain.type.ItemSubMenu;
+
 
 
 @ManagedBean
@@ -42,7 +44,12 @@ public class MainMenuController extends GenericController{
 	}
 	
 	public void acessarItensMenu(ActionEvent actionEvent){		
-		setItemMenu("/pages/sobre.xhtml");
+		
+		String item = getStringParameter("item");
+		
+		if(item.equals(ItemSubMenu.SOBRE.getItem())){
+			setItemMenu("/pages/sobre.xhtml");			
+		}		
 	}
 
 	public String quitAction(){

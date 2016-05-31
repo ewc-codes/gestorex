@@ -11,7 +11,8 @@
 	<p:panel id="basic" header="Login" footer="Gestor EX - 2016" style="margin-bottom:20px">
         <h:panelGrid columns="2" cellpadding="10">
  				<h:outputLabel for="user" value="Usuário: *"/>       
-            	<p:inputText id="user" value="#{loginController.login}" required="true"/>            	
+            	<p:inputText id="user" value="#{loginController.login}" required="true">            	
+            	</p:inputText>            	
             	<h:outputLabel for="pass" value="Senha: *"/>
             	<p:password id="pass" value="#{loginController.senha}" required="true"/>            	
             	<p:commandButton value="Entrar" id="entrar" validateClient="true" icon="ui-icon-check" action="#{loginController.accessAction}" />            	

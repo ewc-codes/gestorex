@@ -2,6 +2,9 @@ package br.com.codes.controller;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
 
 import br.com.codes.util.Props;
 
@@ -13,6 +16,8 @@ public class GenericController implements Serializable {
 	private static final long serialVersionUID = -8232781290210831966L;
 	
 
+	private FacesContext parameter;
+	
 	/**
 	 * Retorna mensagens catalogadas no message.properties
 	 * @param key - Chave do arquivo
@@ -40,6 +45,17 @@ public class GenericController implements Serializable {
 		}
 		return null;
 	}
+
+	/**
+	 * Retorna parametro do tipo string
+	 * @param key
+	 * @return
+	 */
+	public String getStringParameter(Object key) {
+		return (String)parameter.getCurrentInstance().getExternalContext().getRequestParameterMap().get(key);
+	}
+	
+	
 
 
 }
