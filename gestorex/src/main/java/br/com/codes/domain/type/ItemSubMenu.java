@@ -2,7 +2,8 @@ package br.com.codes.domain.type;
 
 public enum ItemSubMenu {
 
-	SOBRE("Administração", "Sobre");
+	SOBRE("Administração", "Sobre"), 
+	USUARIO("Usuário", "Usuario");
 
 	private String modulo;
 	private String item;

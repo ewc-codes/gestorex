@@ -21,6 +21,7 @@ public class MainMenuController extends GenericController{
 	private static final long serialVersionUID = 2121549074188321758L;
 	
 	private String itemMenu;
+	
 
 	@PostConstruct
 	public void init() {
@@ -43,18 +44,27 @@ public class MainMenuController extends GenericController{
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Info", summary));
 	}
 	
-	public void acessarItensMenu(ActionEvent actionEvent){		
+	public String acessarItensMenu(){		
 		
 		String item = getStringParameter("item");
 		
-		if(item.equals(ItemSubMenu.SOBRE.getItem())){
-			setItemMenu("/pages/sobre.xhtml");			
-		}		
+		if(item.equals(ItemSubMenu.SOBRE.getItem())){			
+			return "/pages/sobre.xhtml?faces-redirect=true";
+		}
+		if(item.equals(ItemSubMenu.USUARIO.getItem())){			
+			return "/pages/usuario/usuario.xhtml?faces-redirect=true";
+		}
+
+		return item;		
 	}
 
 	public String quitAction(){
 		return "/index.xhtml?faces-redirect=true";
 	}
+	public String homeAction(){
+		return "/home.xhtml?faces-redirect=true";
+	}
+
 
 	public String getItemMenu() {
 		return itemMenu;
@@ -63,6 +73,25 @@ public class MainMenuController extends GenericController{
 	public void setItemMenu(String itemMenu) {
 		this.itemMenu = itemMenu;
 	}
+
+	@Override
+	public void novo(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void filtrar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exportar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 }

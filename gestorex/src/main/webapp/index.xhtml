@@ -3,21 +3,29 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core" >
 <h:head>
+<style>
+body{
+    background-color: #082767;
+}
+</style>
 </h:head>
-<h:form>
-	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"  />
-	<p:panel id="basic" header="Login" footer="Gestor EX - 2016" style="margin-bottom:20px">
-        <h:panelGrid columns="2" cellpadding="10">
- 				<h:outputLabel for="user" value="Usuário: *"/>       
-            	<p:inputText id="user" value="#{loginController.login}" required="true">            	
-            	</p:inputText>            	
-            	<h:outputLabel for="pass" value="Senha: *"/>
-            	<p:password id="pass" value="#{loginController.senha}" required="true"/>            	
-            	<p:commandButton value="Entrar" id="entrar" validateClient="true" icon="ui-icon-check" action="#{loginController.accessAction}" />            	
-            	<p:commandButton value="Esqueceu a senha" validateClient="false" id="esqueceu" icon="ui-icon-help" actionListener="#{loginController.recoveryPasswordAction}" />
-        </h:panelGrid>
-    </p:panel>
-</h:form>
+<body>
+	<h:form >		
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
+		<h1 align="left" style="color: white;">Gestor EX</h1>
+		<p:panel id="basic" header="Login"  footer="Gestor EX - 2016" style="position: absolute;left: 35%;top: 35%" >                                             
+	        <h:panelGrid columns="2" cellpadding="10" >
+	 				<h:outputLabel for="user" value="Usuário: *"/>       
+	            	<p:inputText id="user" value="#{loginController.usuarioDTO.login}" required="true">            	
+	            	</p:inputText>            	
+	            	<h:outputLabel for="pass" value="Senha: *"/>
+	            	<p:password id="pass" value="#{loginController.usuarioDTO.senha}" required="true"/>            	
+	            	<p:commandButton value="Entrar" id="entrar" validateClient="true" icon="ui-icon-check" action="#{loginController.accessAction}" />            	
+	            	<p:commandButton value="Esqueceu a senha" validateClient="false" id="esqueceu" icon="ui-icon-help" actionListener="#{loginController.recoveryPasswordAction}" />
+	        </h:panelGrid>
+	    </p:panel>
+	</h:form>
+</body>
 </html>

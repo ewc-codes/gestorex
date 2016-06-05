@@ -1,22 +1,27 @@
 package br.com.codes.controller;
 
 import java.io.IOException;
-import java.io.Serializable;
-import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
 import br.com.codes.util.Props;
 
-public class GenericController implements Serializable {
+
+
+
+public abstract class GenericController implements Controller{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8232781290210831966L;
 	
-
+	
 	private FacesContext parameter;
+	
+	public GenericController() {
+		super();
+	}
 	
 	/**
 	 * Retorna mensagens catalogadas no message.properties
@@ -54,6 +59,7 @@ public class GenericController implements Serializable {
 	public String getStringParameter(Object key) {
 		return (String)parameter.getCurrentInstance().getExternalContext().getRequestParameterMap().get(key);
 	}
+
 	
 	
 

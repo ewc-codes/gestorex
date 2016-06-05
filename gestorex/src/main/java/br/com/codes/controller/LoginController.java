@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import br.com.codes.dto.UsuarioDTO;
 
 @ManagedBean
 @RequestScoped
@@ -16,14 +17,13 @@ public class LoginController extends GenericController{
 	 * 
 	 */
 	private static final long serialVersionUID = 4895493245014341642L;
-	
-	private String login;
-	
-	private String senha;
+		
+	private UsuarioDTO usuarioDTO;
+
 	
 	@PostConstruct
 	public void init() {
-		
+		usuarioDTO = new UsuarioDTO();
 		System.out.println(getMessage("message.io.login"));
 		
 	}
@@ -45,23 +45,38 @@ public class LoginController extends GenericController{
 	public void recoveryPasswordAction(ActionEvent actionEvent){
 		
 	}
-
-	public String getLogin() {
-		return login;
+	
+	public UsuarioDTO getUsuarioDTO() {
+		return usuarioDTO;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
+		this.usuarioDTO = usuarioDTO;
 	}
 
-	public String getSenha() {
-		return senha;
+
+	@Override
+	public void novo(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+
+	@Override
+	public void filtrar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
 	}
 
+
+	@Override
+	public void exportar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 
 	
 }

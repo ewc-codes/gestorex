@@ -11,13 +11,15 @@
         </p:submenu>  
         <p:separator/>  
         <p:submenu label="#{menu.administrar}"  >
-            <p:submenu label="Usuário" icon="ui-icon-extlink">
-                <p:menuitem value="Usuário" url="http://www.primefaces.org" icon="ui-icon-home" />
+            <p:submenu label="Permissão e Controle" icon="ui-icon-extlink">
+                <p:menuitem value="Usuário" action="#{mainMenuController.acessarItensMenu}" icon="ui-icon-home">
+                	<f:param name="item" value="#{menu.usuario}" />
+                </p:menuitem>                
                 <p:menuitem value="Grupo de Usuário" url="http://www.primefaces.org/documentation" icon="ui-icon-document" />
                 <p:menuitem value="Permissões" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
                 <p:menuitem value="Notificações" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
             </p:submenu>
-              <p:menuitem value="#{menu.sobre}" actionListener="#{mainMenuController.acessarItensMenu}"  icon="ui-icon-wrench">
+              <p:menuitem value="#{menu.sobre}" action="#{mainMenuController.acessarItensMenu}"  icon="ui-icon-wrench" >
                		<f:param name="item" value="#{menu.sobre}" />
               </p:menuitem>
         </p:submenu>

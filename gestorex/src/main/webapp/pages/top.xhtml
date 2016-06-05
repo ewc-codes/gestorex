@@ -5,16 +5,10 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 		<p:megaMenu  orientation="horizontal" style="margin-top:20px">		
-			<f:facet name="options">				
-				<p:commandButton id="dynaButton" value="Módulos" type="button" icon="ui-icon-extlink" />
-				<p:separator/>	
-            	<p:inputText style="margin-right:10px" placeholder="Search"/>
+			<f:facet name="options">								
+            	<p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
+            	<p:commandButton action="#{mainMenuController.homeAction}" value="#{menu.home}" icon="ui-icon-extlink"/>
             	<p:commandButton action="#{mainMenuController.quitAction}" value="#{menu.sair}" icon="ui-icon-extlink"/>
-            	<p:tieredMenu overlay="true" trigger="dynaButton" my="left top" at="left bottom" style="width:200px">
-		        	<p:menuitem value="#{menu.contabil}" icon="ui-icon-extlink"/>
-		        	<p:menuitem  value="#{menu.rh}" icon="ui-icon-extlink"/>
-		        	<p:menuitem value="#{menu.administrar}" icon="ui-icon-extlink"/>		        	
-		    	</p:tieredMenu>
         	</f:facet>
 		</p:megaMenu>
 </ui:composition>

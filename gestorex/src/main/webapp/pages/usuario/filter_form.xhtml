@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+	<p:panelGrid  style="width: 100%" columns="2">
+		<h:outputText value="Login:" />
+		<h:inputText value="a" />
+		<h:outputText value="Nome:" />
+		<h:inputText value="a" />
+		<h:outputText value="E-Mail:" />
+		<h:inputText value="a" />
+	</p:panelGrid>
+	<p:panelGrid style="width: 100%" columns="3" >
+		<p:commandButton value="Filtrar" validateClient="false" id="filtrar" icon="ui-icon-help" actionListener="#{usuarioController.filtrar}" />
+		<p:commandButton value="Novo" id="novo" icon="ui-icon-check" onclick="PF('dlgUser').show();" />		
+		<p:commandButton value="Exportar" validateClient="false" id="Exportar" icon="ui-icon-help"	actionListener="#{usuarioController.exportar}" />
+	</p:panelGrid>
+	
+	
+</ui:composition>
