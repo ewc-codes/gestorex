@@ -14,7 +14,7 @@ public class HibernateUtil implements Serializable {
 	private static final long serialVersionUID = 4022162753923779776L;
 
 	private static SessionFactory sessionFactory = new Configuration()
-			.configure().buildSessionFactory();
+			.configure("hibernate.cfg.xml").buildSessionFactory();
 	private static ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
 
 	public static Session getSession() {

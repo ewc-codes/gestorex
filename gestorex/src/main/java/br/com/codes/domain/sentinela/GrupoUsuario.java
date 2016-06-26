@@ -1,4 +1,4 @@
-package br.com.codes.domain;
+package br.com.codes.domain.sentinela;
 
 import java.io.Serializable;
 

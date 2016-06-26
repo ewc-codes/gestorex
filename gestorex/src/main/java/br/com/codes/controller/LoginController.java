@@ -1,13 +1,15 @@
 package br.com.codes.controller;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import br.com.codes.dto.UsuarioDTO;
+import br.com.codes.service.UsuarioService;
 
 @ManagedBean
 @RequestScoped
@@ -20,10 +22,12 @@ public class LoginController extends GenericController{
 		
 	private UsuarioDTO usuarioDTO;
 
+	private UsuarioService usuarioService;
 	
 	@PostConstruct
-	public void init() {
+	public void init() {	
 		usuarioDTO = new UsuarioDTO();
+		usuarioService = new UsuarioService();
 		System.out.println(getMessage("message.io.login"));
 		
 	}
@@ -38,7 +42,13 @@ public class LoginController extends GenericController{
 	}
 	
 	public String accessAction(){
-		return "/home.xhtml?faces-redirect=true";
+		
+		Boolean ehUsuarioValido = usuarioService.obterAcessoSistema(usuarioDTO.getLogin(), usuarioDTO.getSenha());
+		
+		if(ehUsuarioValido){
+			return "/home.xhtml?faces-redirect=true";			
+		}
+		return null;
 	}
 	
 	
@@ -52,6 +62,16 @@ public class LoginController extends GenericController{
 
 	public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
 		this.usuarioDTO = usuarioDTO;
+	}
+		
+
+	public UsuarioService getUsuarioService() {
+		return usuarioService;
+	}
+
+
+	public void setUsuarioService(UsuarioService usuarioService) {
+		this.usuarioService = usuarioService;
 	}
 
 
@@ -71,6 +91,13 @@ public class LoginController extends GenericController{
 
 	@Override
 	public void exportar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void salvar(ActionEvent actionEvent) {
 		// TODO Auto-generated method stub
 		
 	}

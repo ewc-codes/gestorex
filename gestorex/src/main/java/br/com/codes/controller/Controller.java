@@ -22,6 +22,8 @@ public interface Controller extends Serializable {
 	
 	public void exportar(ActionEvent actionEvent);
 
+	void salvar(ActionEvent actionEvent);
+
 	
 	
 }

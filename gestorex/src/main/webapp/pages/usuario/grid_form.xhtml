@@ -5,27 +5,33 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 
-	<p:dataTable id="userDT" var="car" value="#{dtSelectionView.cars1}" emptyMessage="#{message.registro_n_localizado}">
+	<p:dataTable id="userDT" var="usuario" value="#{usuarioController.listaUsuario}" rows="10" paginator="true" emptyMessage="#{message.registro_n_localizado}">
         <f:facet name="header">
             Usuários
         </f:facet>
-         <p:column headerText="">
-         </p:column>
+        <p:column style="width:32px;text-align: center">
+             <p:commandButton update=":formUser:userDetail" oncomplete="PF('dlgUser').show()" icon="ui-icon-edit" title="View">
+                <f:setPropertyActionListener  value="#{usuario}" target="#{usuarioController.usuarioDTO}" />
+            </p:commandButton>
+        </p:column>
         <p:column headerText="Id">
-            <h:outputText value="#{car.id}" />
+            <h:outputText value="#{usuario.usuId}" />
         </p:column>
         <p:column headerText="Nome">
-            <h:outputText value="#{car.year}" />
+            <h:outputText value="#{usuario.usuNome}" />
         </p:column>
         <p:column headerText="Login">
-            <h:outputText value="#{car.brand}" />
+            <h:outputText value="#{usuario.usuLogin}" />
         </p:column>
         <p:column headerText="E-Mail">
-            <h:outputText value="#{car.color}" />
+            <h:outputText value="#{usuario.usuEmail}" />
         </p:column>
         <p:column headerText="Ativo">
-            <h:outputText value="#{car.color}" />
-        </p:column>        
+            <h:outputText value="#{usuario.usuAtivo}" />
+        </p:column>  
+         <p:column style="width:32px;text-align: center">
+             <p:commandButton update=":formUser:userDetail" icon="ui-icon-delete" title="View"/>         
+        </p:column>      
         
     </p:dataTable>
 	

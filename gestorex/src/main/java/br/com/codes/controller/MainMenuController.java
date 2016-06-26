@@ -49,10 +49,10 @@ public class MainMenuController extends GenericController{
 		String item = getStringParameter("item");
 		
 		if(item.equals(ItemSubMenu.SOBRE.getItem())){			
-			return "/pages/sobre.xhtml?faces-redirect=true";
+			return ItemSubMenu.SOBRE.getUrl();
 		}
 		if(item.equals(ItemSubMenu.USUARIO.getItem())){			
-			return "/pages/usuario/usuario.xhtml?faces-redirect=true";
+			return ItemSubMenu.USUARIO.getUrl();
 		}
 
 		return item;		
@@ -88,6 +88,12 @@ public class MainMenuController extends GenericController{
 
 	@Override
 	public void exportar(ActionEvent actionEvent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void salvar(ActionEvent actionEvent) {
 		// TODO Auto-generated method stub
 		
 	}

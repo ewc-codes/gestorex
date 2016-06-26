@@ -1,16 +1,17 @@
-package br.com.codes.domain;
+package br.com.codes.domain.sentinela;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TB_USUARIO", schema = "SENTINELA")
-@SequenceGenerator(name="SQ_USUARIO", sequenceName="SQ_USUARIO", allocationSize=1, initialValue=0)
+@Table(name = "tb_usuario", schema = "sentinela")
 public class Usuario implements Serializable {
 
 	/**
@@ -19,34 +20,36 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = -5652262963680479283L;
 
 	@Id
-	@Column(name = "USU_ID")	
+	@SequenceGenerator(name="sq_usuario", sequenceName="sq_usuario", schema="sentinela", allocationSize=1, initialValue=1)
+	@GeneratedValue(generator="sq_usuario",strategy=GenerationType.SEQUENCE)
+	@Column(name = "usu_id",unique=true)
 	private Long usuId;
 
-	@Column(name = "USU_NOME", length = 50)
+	@Column(name = "usu_nome", length = 50)
 	private String usuNome;
 
-	@Column(name = "USU_LOGIN", length = 30)
+	@Column(name = "usu_login", length = 30)
 	private String usuLogin;
 
-	@Column(name = "USU_SENHA", length = 30)
+	@Column(name = "usu_senha", length = 30)
 	private String usuSenha;
 
-	@Column(name = "USU_FRASE_SENHA", length = 100)
+	@Column(name = "usu_frase_senha", length = 100)
 	private String usuFraseSenha;
 
-	@Column(name = "USU_DT_CADASTRO")
+	@Column(name = "usu_dt_cadastro")
 	private String usuDtCadastro;
 
-	@Column(name = "USU_CAD_COMPLETO")
+	@Column(name = "usu_cad_completo")
 	private Boolean usuCadCompleto;
 
-	@Column(name = "USU_CONTA_FREE")
+	@Column(name = "usu_conta_free")
 	private Boolean usuContaFree;
 
-	@Column(name = "USU_EMAIL", length = 50)
+	@Column(name = "usu_email", length = 50)	
 	private String usuEmail;
 
-	@Column(name = "USU_ativo")
+	@Column(name = "usu_ativo")
 	private Boolean usuAtivo;
 
 	public Long getUsuId() {

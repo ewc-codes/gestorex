@@ -2,13 +2,16 @@ package br.com.codes.controller;
 
 import java.io.IOException;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.codes.util.Props;
 
 
 
-
+@ManagedBean
+@RequestScoped
 public abstract class GenericController implements Controller{
 
 	/**
